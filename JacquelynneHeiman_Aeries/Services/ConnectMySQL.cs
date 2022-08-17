@@ -18,12 +18,12 @@ namespace JacquelynneHeiman_Aeries.Services
                         "User Id=aeries" + ";Password=Aeries2022;";
 
                     connection.Open();
-                    Console.WriteLine("Successfully connected to Aeries_StudentData.");
+                    System.Diagnostics.Trace.TraceInformation("Successfully Connected to Database!");
                     return connection;
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Could not connect to database: " + e.Message);
+                    System.Diagnostics.Trace.TraceInformation("Could not connect to database: " + e.Message);
                     return null;
                 }
             }
@@ -34,7 +34,7 @@ namespace JacquelynneHeiman_Aeries.Services
         public static void Close()
         {
             connection.Close();
-            Console.WriteLine("Connection to Aeries_StudentData is now closed.");
+            System.Diagnostics.Trace.TraceInformation("Connection to Aeries_StudentData is now closed.");
         }
     }
 }
