@@ -1,0 +1,138 @@
+﻿@model IEnumerable<JacquelynneHeiman_Aeries.Models.StudentModel>
+
+<h2>Student Contacts</h2>
+<hr />
+
+<table class="table" id="studentTable">
+    <thead>
+        <tr style="background-color:#2d539c;color:#ffffff;">
+            <th class="col-sm-2">
+                @Html.DisplayNameFor(model => model.SchoolCode)
+            </th>
+            <th class="col-sm-2">
+                @Html.DisplayNameFor(model => model.StudentId)
+            </th>
+            <th colspan="10">
+                Student Name
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr style="border-collapse:unset;border-bottom:2px solid #2d539c;border-top:2px solid #2d539c;">
+                <td>
+                    @Html.DisplayFor(modelItem => item.SchoolCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentId)
+                </td>
+                <td class="col-sm-2">
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td colspan="7" style="text-align:right">
+                    <button type="button" name="toggleButton_@item.StudentId.ToString()" id="@item.StudentId.ToString()" value="Show Contact(s)" onclick="toggleRowsWithButton(name, id)" style="border:none;background-color:#ffffff"><i class="fa-solid fa-angle-down"></i></button>
+                </td>
+            </tr>
+            <tr class="@item.StudentId.ToString()" style="visibility: collapse; background-color:#eeeeee">
+                <th>
+                    @Html.DisplayNameFor(modelContact => item.contacts[0].StudentId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(modelContact => item.contacts[0].LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(modelContact => item.contacts[0].FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(modelContact => item.contacts[0].Relationship)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(modelContact => item.contacts[0].EmailAddress)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(modelContact => item.contacts[0].Mobile)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(modelContact => item.contacts[0].Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(modelContact => item.contacts[0].City)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(modelContact => item.contacts[0].State)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(modelContact => item.contacts[0].ZipCode)
+                </th>
+            </tr>
+            @foreach (ContactModel contact in item.contacts)
+            {
+                <tr class="@item.StudentId.ToString()" style="visibility:collapse;background-color:#fcfcfc;">
+                    <td>
+                        @Html.DisplayFor(modelContact => contact.StudentId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelContact => contact.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelContact => contact.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelContact => contact.Relationship)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelContact => contact.EmailAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelContact => contact.Mobile)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelContact => contact.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelContact => contact.City)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelContact => contact.State)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelContact => contact.ZipCode)
+                    </td>
+                </tr>
+            }
+        }
+
+    </tbody>
+</table>
+
+<!--JavaScript Code to Toggle the Contact Tables-->
+<script>
+    function addClickHandler(name, id) {
+        var row = document.getElementById(name);
+        var [cells] = row.getElementsByTagName("td");
+        td.onclick = toggleRowsWithButton(name, id);
+    }
+
+    function toggleRowsWithButton(name, id) {
+        if (document.getElementsByName(name).value == "Hide Contact(s)") {
+            document.getElementsByName(name).value = "Show Contact(s)";
+            var table = document.getElementById("studentTable");
+            for (var i = 0, row; row = table.rows[i]; i++) {
+                if (row.className == id) {
+                    row.style.visibility = "collapse";
+                }
+            }
+        }
+        else {
+            document.getElementsByName(name).value = "Hide Contact(s)";
+            var table = document.getElementById("studentTable");
+            for (var i = 0, row; row = table.rows[i]; i++) {
+                if (row.className == id) {
+                    row.style.visibility = "visible";
+                }
+            }
+        }
+    }
+</script>
