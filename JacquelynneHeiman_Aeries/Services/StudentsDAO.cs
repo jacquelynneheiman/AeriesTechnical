@@ -39,11 +39,11 @@ namespace JacquelynneHeiman_Aeries.Services
 
                     dataReader.Close();
 
-                    System.Diagnostics.Trace.TraceInformation("Successfully obtained student records.");
+                    System.Diagnostics.Trace.WriteLine("Successfully obtained student records.");
                 }
                 catch (Exception e)
                 {
-                    System.Diagnostics.Trace.TraceInformation("Failed to get student records: " + e.Message);
+                    System.Diagnostics.Trace.WriteLine("Failed to get student records: " + e.Message);
                 }
 
                 connection.Close();
@@ -91,11 +91,11 @@ namespace JacquelynneHeiman_Aeries.Services
 
                     dataReader.Close();
 
-                    System.Diagnostics.Trace.TraceInformation("Successfully obtained contact for student: " + studentId);
+                    System.Diagnostics.Trace.WriteLine("Successfully obtained contact for student: " + studentId);
                 }
                 catch (Exception e)
                 {
-                    System.Diagnostics.Trace.TraceInformation("Could not get contacts: " + e.Message);
+                    System.Diagnostics.Trace.WriteLine("Could not get contacts: " + e.Message);
                 }
             }
 
