@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Diagnostics.Tracing;
 using MySql.Data.MySqlClient;
 
 namespace JacquelynneHeiman_Aeries.Services

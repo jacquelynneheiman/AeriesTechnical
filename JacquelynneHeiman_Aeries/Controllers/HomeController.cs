@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using JacquelynneHeiman_Aeries.Models;
 using JacquelynneHeiman_Aeries.Services;
+using System.Diagnostics.Tracing;
 
 namespace JacquelynneHeiman_Aeries.Controllers;
 

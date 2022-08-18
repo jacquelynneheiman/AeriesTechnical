@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Diagnostics.Tracing;
 using System.Data;
 using MySql.Data.MySqlClient;
 using JacquelynneHeiman_Aeries.Models;
